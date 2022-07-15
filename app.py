@@ -290,3 +290,96 @@
 #
 #bob = Person("Bob Smith")
 #bob.talk()
+
+# TILL HERE CODE UPLOADED
+
+
+#INHERITANCE
+#class Mammal:
+#    def walk(self):
+#        print("walk")
+#
+#
+#class Dog(Mammal):
+#    def bark(self):
+#        print("bark")
+#
+#
+#class Cat(Mammal):
+#    def be_annoying(self):
+#        print("annoying")
+#
+#
+#dog1 = Dog()
+#dog1.walk()
+#dog1.bark()
+#
+#cat1 = Cat()
+#cat1.walk()
+#cat1.be_annoying()
+
+
+#MODULES
+# this code is connected to the secondary file so that the code is not compiled in 1 file and the code in  the second file can be used
+#import converter  -->>   for any other code or project
+#from converter import kg_to_lbs
+#
+#kg_to_lbs(100)
+#
+#print(converter.kg_to_lbs(70))
+
+# from converter import find_max
+# SO THERE IS A BUILT IN FUNCTION AS MAX SO WE HAVE TO CHANGE THE NAME OF THE VARIABLE FROM MAX TO MAXIMUM
+# numbers = [2, 4, 5, 7, 12, 14, 6] -->>
+# maximum = find_max(numbers)
+
+# print(maximum)
+
+#RANDOM LIBRARY
+# import random
+#IN THIS LIBRARY WE CAN GET ANY RANDOM NUMBER OR VARIABLE ONCE WE SET THE RANGE OR GIVE IT A LIST TO CHOOSE
+#SO IN THIS WE GAVE IT SO DICE THAT IS IF WE ROLL THE DICE WHAT WILL BE THE OUTCOME SO IT WILL BE A RANDOM FROM 1 TO 6
+# class Dice: # WE GAVE THE FUNCTION A TUPLE FROM RANGE 1 TO 6
+#     def roll(self):
+#         first = random.randint(1, 6)
+#         second = random.randint(1, 6)
+#         return first, second
+#
+#
+# dice = Dice()
+# print(dice.roll())
+
+
+#NOTE ->>>> THIS CODE SHOULD BE UPLOADED IN DIFFERENT REPO
+# THIS IS A FUNCTION THAT IS USED TO SHOW OR BRING THE DIFFERENT DIRECTORY TO A CERTAIN FILE
+# from pathlib import Path
+#
+# path = Path()
+# for file in path.glob('*.*'):
+#     print(file)
+
+#THIS IS A PROJECT THAT CONNECTS PYTHON AND EXCEL
+# import openpyxl as xl FOR THAT WE HAVE TO IMPORT OR INSTALL THIS LIBRARY
+# from openpyxl.chart import BarChart, Reference
+#
+# def process_workbook(filename):
+#     wb = xl.load_workbook(filename)
+#     sheet = wb['Sheet1']
+#
+#     for row in range(2, sheet.max_row + 1):
+#         cell = sheet.cell(row, 3)
+#         corrected_price = cell.value * 0.9
+#         corrected_price_cell = sheet.cell(row, 4)
+#         corrected_price_cell.value = corrected_price
+#
+#     values = Reference(sheet,
+#             min_row=2,
+#             max_row=sheet.max_row,
+#             min_col=4,
+#             max_col=4)
+#
+#     chart = BarChart()
+#     chart.add_data(values)
+#     sheet.add_chart(chart, 'e2')
+#
+#     wb.save(filename)
