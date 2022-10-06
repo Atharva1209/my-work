@@ -401,3 +401,66 @@ namespace WebApplication2
         }
     }
 }
+
+
+
+3B B ______________________________________________________________________
+
+HTML FILE 
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebApplication2.WebForm1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<title></title></head>
+<body>
+<form id="form1" runat="server"><div>
+<asp:TreeView ID="TreeView1" runat="server"
+onselectednodechanged="TreeView1_SelectedNodeChanged" ShowLines="True"
+ontreenodecollapsed="TreeView1_TreeNodeCollapsed">
+<Nodes>
+<asp:TreeNode Text="I.T. Department" Value="I.T. Department">
+<asp:TreeNode Text="Class Room" Value="Class Room">
+<asp:TreeNode Text="601" Value="601"></asp:TreeNode>
+<asp:TreeNode Text="602" Value="602"></asp:TreeNode>
+</asp:TreeNode>
+<asp:TreeNode Text="Lab" Value="Lab">
+<asp:TreeNode Text="Lab-1" Value="Lab-1"></asp:TreeNode>
+<asp:TreeNode Text="Lab-2" Value="Lab-2"></asp:TreeNode>
+</asp:TreeNode>
+</asp:TreeNode>
+</Nodes>
+</asp:TreeView>
+</div></form>
+</body></html>
+
+.CS FILE ____________________________________________________________
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace WebApplication2
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+        protected void TreeView1_SelectedNodeChanged(object sender, EventArgs e)
+        {
+            Response.Write("You have selected the option:" + TreeView1.SelectedValue);
+        }
+        protected void TreeView1_TreeNodeCollapsed(object sender, TreeNodeEventArgs
+        e)
+        {
+            Response.Write("The value Collapsed was:" + e.Node.Value);
+        }
+    }
+}
+
