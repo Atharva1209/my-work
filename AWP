@@ -127,3 +127,86 @@ namespace WebApplication2
         }
     }
 }
+
+
+
+
+3A _______________________________
+HTML FILE ________________
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebApplication2.WebForm1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<title></title></head>
+<body>
+<form id="form1" runat="server"><div>
+<asp:Label ID="Label1" runat="server" Text="Name :"></asp:Label>
+<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+<br /><br />
+<asp:Label ID="Label2" runat="server" Text="RNo."></asp:Label>
+
+<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+<br /><br />
+<asp:Label ID="Label3" runat="server" Text="Class"></asp:Label>
+<asp:RadioButton ID="RadioButton1" runat="server" Text="FY" />
+<asp:RadioButton ID="RadioButton2" runat="server" Text="SY" />
+<asp:RadioButton ID="RadioButton3" runat="server" Text="TY" />
+<br /><br />
+<asp:Label ID="Label4" runat="server" Text="Course :"></asp:Label>
+<asp:DropDownList ID="DropDownList1" runat="server"
+onselectedindexchanged="DropDownList1_SelectedIndexChanged"
+AutoPostBack="true">
+<asp:ListItem>B.SC(IT)</asp:ListItem>
+<asp:ListItem>M.SC(IT)</asp:ListItem>
+<asp:ListItem>MCA</asp:ListItem>
+</asp:DropDownList>
+<br /><br />
+<asp:Button ID="Button1" runat="server" Text="Submit" onclick="Button1_Click"/>
+<br />
+<asp:Label ID="Label5" runat="server"></asp:Label>
+</div> </form> </body>
+</html>
+
+.cs file ________________________
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace WebApplication2
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs
+ e)
+        {
+            Label5.Text = "You have been enrolled " + DropDownList1.SelectedItem;
+        }
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string s;
+            if (RadioButton1.Checked == true)
+            {
+                s = RadioButton1.Text;
+            }
+            else if (RadioButton2.Checked == true)
+            {
+                s = RadioButton2.Text;
+            }
+            else
+            {
+                s = RadioButton3.Text;
+            }
+            Label5.Text = "You have been enrolled in " + s + " " +
+            DropDownList1.SelectedItem;
+        }
+    }
+}
