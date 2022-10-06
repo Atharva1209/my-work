@@ -338,3 +338,66 @@ namespace WebApplication2
         }
     }
 }
+
+
+
+3C A ____________________________________________________________
+
+HTML FILE 
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebApplication2.WebForm1" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<title></title></head>
+<body>
+<form id="form1" runat="server">
+<div>
+<asp:TreeView ID="TreeView1" runat="server" >
+<Nodes>
+<asp:TreeNode Text="Course" Value="Course">
+<asp:TreeNode Checked="true" ShowCheckBox="True" Text="BSC(IT)"
+Value="BSC(IT)"></asp:TreeNode>
+<asp:TreeNode ShowCheckBox="True" Text="B.Com"
+Value="B.Com"></asp:TreeNode>
+<asp:TreeNode ShowCheckBox="True" Text="BSC(CS)"
+Value="BSC(CS)"></asp:TreeNode>
+</asp:TreeNode></Nodes>
+</asp:TreeView>
+<asp:Button ID="Button1" runat="server" Text="Submit"
+onclick="Button1_Click" />
+</div>
+<asp:DataList ID="DataList1" runat="server">
+<ItemTemplate>
+<%# Eval("text") %>
+</ItemTemplate>
+</asp:DataList>
+</form></body>
+</html>
+
+.CS FILE __________________________________________________________
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace WebApplication2
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            TreeNodeCollection T;
+            T = TreeView1.CheckedNodes;
+            DataList1.DataSource = T;
+            DataList1.DataBind();
+            DataList1.Visible = true;
+        }
+    }
+}
