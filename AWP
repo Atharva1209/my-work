@@ -608,3 +608,55 @@ WEB CONFIG FILE ____________________________________
     </compilers>
   </system.codedom>
 </configuration>
+
+
+4C_____________________________________________________________________
+HTML FILE ____________________________________________________
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebApplication3.WebForm1" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title></title></head>
+<body>
+<form id="form1" runat="server"><div><br />
+<asp:Label ID="Label1" runat="server" Text="This is User 
+Control"></asp:Label><br /><br />
+&nbsp;&nbsp;
+<asp:Label ID="Label2" runat="server" Text="Enter Your Name:"></asp:Label>
+&nbsp;&nbsp;&nbsp;
+<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br />
+&nbsp;&nbsp;
+<asp:Label ID="Label3" runat="server" Text="Enter Your City: "></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox><br />
+<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Save"
+/><br />
+<asp:Label ID="Label4" runat="server"></asp:Label><br />
+</div></form></body>
+</html>
+ 
+ 
+ CS FILE______________________________________________________________________
+ using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace WebApplication3
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Label4.Text = "Your Name is " + TextBox1.Text + " and you are from " +
+            TextBox2.Text;
+        }
+    }
+}
